@@ -1,15 +1,7 @@
 <html>
     <head>
 	    <title>Five Equals Six</title>
-		<style>
-		    #header{
-				width:100%;
-				height:100px;
-				background:red;
-			}
-		
-		
-		</style>
+		<link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 	
 	<body>
