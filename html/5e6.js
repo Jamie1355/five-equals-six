@@ -11,6 +11,9 @@ function toggle_sidebar()
 		content_div.style.width="1000px";
 	}
 	
-	
-	
+}
+
+function test()
+{
+	window.alert("Test function did get called");
 }
