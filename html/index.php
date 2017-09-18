@@ -20,17 +20,18 @@
 		
 				Sidebar
 				
-				<h2>Section X</H2>
+
 				<h2>Section 1</H2>
-				<h2>Section 1</H2>
-				<h2>Section 1</H2>
-				<h2>Section 1</H2>
-				<h2>Section 1</H2>
-				<h2>Section 1</H2>
-				<h2>Section 1</H2>
-				<h2>Section 1</H2>
-				<h2>Section 1</H2>
-				<h2>Section 1</H2>
+				<h2>Section 2</H2>
+				<h2>Section 3</H2>
+				<h2>Section 4</H2>
+				<h2>Section 5</H2>
+				<h2>Section 6</H2>
+				<h2>Section 7</H2>
+				<h2>Section 8</H2>
+				<h2>Section 9</H2>
+				<h2>Section 10</H2>
+				<h2>Section 11</H2>
 				
 			</td>
 			<td valign="top">
