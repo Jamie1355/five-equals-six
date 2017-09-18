@@ -20,7 +20,7 @@
 		
 				Sidebar
 				
-				<h2>Section 1</H2>
+				<h2>Section X</H2>
 				<h2>Section 1</H2>
 				<h2>Section 1</H2>
 				<h2>Section 1</H2>
