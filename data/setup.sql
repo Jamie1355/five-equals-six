@@ -24,45 +24,54 @@ DROP TABLE IF EXISTS Topics;
 CREATE TABLE Topics(
 TopicID			INTEGER NOT NULL PRIMARY KEY,
 TopicName		VARCHAR(30) NOT NULL,
-ResourcePath	VARCHAR(50) NOT NULL		--Path to the notes for the topic
+TopicFolderPath	VARCHAR(40) NOT NULL
 );
 
-DROP TABLE IF EXISTS ExamQTopics;
-CREATE TABLE ExamQTopics(
-TopicID		INTEGER NOT NULL,
+DROP TABLE IF EXISTS SubTopics;
+CREATE TABLE SubTopics(
+SubTopicID		INTEGER NOT NULL PRIMARY KEY,
+TopicID			INTEGER NOT NULL,
+SubTopicName	VARCHAR(30) NOT NULL,
+SubTopicFolderPath	VARCHAR(30) NOT NULL,
+FOREIGN KEY (TopicID) REFERENCES Topics(TopicID)
+);
+
+DROP TABLE IF EXISTS ExamQSubTopics;
+CREATE TABLE ExamQSubTopics(
+SubTopicID		INTEGER NOT NULL,
 ExamQID	INTEGER NOT NULL,
-FOREIGN KEY (TopicID) REFERENCES Topics(TopicID),
+FOREIGN KEY (SubTopicID) REFERENCES SubTopics(SubopicID),
 FOREIGN KEY (ExamQID) REFERENCES ExamQuestions(ExamQID)
 );
 
 DROP TABLE IF EXISTS TestQuestions;
 CREATE TABLE TestQuestions(
 TestQID			INTEGER NOT NULL PRIMARY KEY,
-TopicID			INTEGER NOT NULL,
+SubTopicID		INTEGER NOT NULL,
 QuestionPath	VARCHAR(50) NOT NULL,		--Path to a single question and answer pair, be it from a fixed file or a generator.
 IsGenerator		BOOLEAN NOT NULL CHECK(IsGenerator IN(0,1)),			--If the question is returned from a generator, it can be used again without duplicating questions.
-FOREIGN KEY (TopicID) REFERENCES Topics(TopicID)
+FOREIGN KEY (SubTopicID) REFERENCES SubTopics(SubTopicID)
 );
 
 DROP TABLE IF EXISTS Coverage;
 CREATE TABLE Coverage(
 UserID			INTEGER NOT NULL,
-TopicID			INTEGER NOT NULL,
+SubTopicID		INTEGER NOT NULL,
 CoveragePercent	INTEGER NOT NULL CHECK(CoveragePercent >= 0 AND CoveragePercent <= 100),
 FOREIGN KEY (UserID) REFERENCES Users(UserID),
-FOREIGN KEY (TopicID) REFERENCES Topics(TopicID),
-PRIMARY KEY(UserID, TopicID)
+FOREIGN KEY (SubTopicID) REFERENCES SubTopics(SubTopicID),
+PRIMARY KEY(UserID, SubTopicID)
 );
 
 DROP TABLE IF EXISTS Attempts;
 CREATE TABLE Attempts(
 UserID			INTEGER NOT NULL,
-TopicID			INTEGER NOT NULL,
+SubTopicID		INTEGER NOT NULL,
 AttemptDateTime	DATETIME NOT NULL,
 Score			INTEGER NOT NULL,
 FOREIGN KEY (UserID) REFERENCES Users(UserID),
-FOREIGN KEY (TopicID) REFERENCES Topics(TopicID),
-PRIMARY KEY(UserID, TopicID, AttemptDateTime)
+FOREIGN KEY (SubTopicID) REFERENCES SubTopics(SubTopicID),
+PRIMARY KEY(UserID, SubTopicID, AttemptDateTime)
 );
 
 /*DATA ENTRY*/
@@ -76,29 +85,35 @@ INSERT INTO ExamQuestions(Year, Cycle, Paper, Question) VALUES
 ('2012', 'Jan', 2, '2'),
 ('2013', 'June', 2, '1bii');
 
-INSERT INTO Topics(TopicName, ResourcePath) VALUES
-('Input/Output Devices', 'inoutdevices/notes'),
-('Binary Arithmetic', 'binmaths/notes');
+INSERT INTO Topics(TopicID, TopicName, TopicFolderPath) VALUES
+(5, 'Fundamentals of Data Representation', '5fundamentalsofdatarepresentation/');
 
-INSERT INTO ExamQTopics(TopicID, ExamQID) VALUES
+INSERT INTO SubTopics(TopicID, SubTopicName, SubTopicFolderPath) VALUES
+(5, 'Number Systems', '01numbersystems'),
+(5, 'Number Bases', '02numberbases'),
+(5, 'Units', '03units'),
+(5, 'Binary Sums', '03binarysums'),
+(5, 'Two''s Complement', '03twoscomplement');
+
+INSERT INTO ExamQSubTopics(SubTopicID, ExamQID) VALUES
 (1,1),
 (2,2),
 (2,3);
 
-INSERT INTO TestQuestions(TopicID, QuestionPath, IsGenerator) VALUES
+INSERT INTO TestQuestions(SubTopicID, QuestionPath, IsGenerator) VALUES
 (1, 'inoutdevices/qs/q1.txt', 0),
 (2, 'binmaths/qs/q1.txt', 0),
 (2, 'binmaths/qs/q2.txt', 0),
 (2, 'binmaths/qs/g1', 1);
 
-INSERT INTO Coverage(UserID, TopicID, CoveragePercent) VALUES
+INSERT INTO Coverage(UserID, SubTopicID, CoveragePercent) VALUES
 (1,1,20),
 (2,1,50),
 (2,2,100),
 (3,1,0),
 (3,2,70);
 
-INSERT INTO Attempts(UserID, TopicID, AttemptDateTime, Score) VALUES
+INSERT INTO Attempts(UserID, SubTopicID, AttemptDateTime, Score) VALUES
 (2, 1, '2017-09-05 09:00', 42),
 (2, 2, '2017-09-06 16:20', 35),
 (2, 2, '2017-09-06 16:40', 39),
