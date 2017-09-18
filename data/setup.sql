@@ -85,15 +85,7 @@ INSERT INTO ExamQuestions(Year, Cycle, Paper, Question) VALUES
 ('2012', 'Jan', 2, '2'),
 ('2013', 'June', 2, '1bii');
 
-INSERT INTO Topics(TopicID, TopicName, TopicFolderPath) VALUES
-(5, 'Fundamentals of Data Representation', '5fundamentalsofdatarepresentation/');
 
-INSERT INTO SubTopics(TopicID, SubTopicName, SubTopicFolderPath) VALUES
-(5, 'Number Systems', '01numbersystems'),
-(5, 'Number Bases', '02numberbases'),
-(5, 'Units', '03units'),
-(5, 'Binary Sums', '03binarysums'),
-(5, 'Two''s Complement', '03twoscomplement');
 
 INSERT INTO ExamQSubTopics(SubTopicID, ExamQID) VALUES
 (1,1),

@@ -6,19 +6,17 @@
          $this->open('../data/alevel.db');
       }
 	  
-	  function Query($sql)
+	  function RunQuery($sql)
 	  {
-		  $this->query('SELECT bar FROM foo');
-while ($row = $results->fetchArray()) {
-    var_dump($row);
-}
-		  
+	
+		$results = $this->query($sql);
+		$retval = array();
+		while ($row = $results->fetchArray()) 
+		{
+			$retval[] = $row;
+		}
+		return $retval;
 	  }
    }
-   $db = new MyDB();
-   if(!$db){
-      echo $db->lastErrorMsg();
-   } else {
-      echo "Opened database successfully\n";
-   }
+  
 ?>

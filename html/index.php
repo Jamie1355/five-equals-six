@@ -18,20 +18,31 @@
 			<tr>
 			<td id="sidebar" valign="top">
 		
-				Sidebar
-				
+				<?php
+include("functions.php");
 
-				<h2>Section 1</H2>
-				<h2>Section 2</H2>
-				<h2>Section 3</H2>
-				<h2>Section 4</H2>
-				<h2>Section 5</H2>
-				<h2>Section 6</H2>
-				<h2>Section 7</H2>
-				<h2>Section 8</H2>
-				<h2>Section 9</H2>
-				<h2>Section 10</H2>
-				<h2>Section 11</H2>
+ $db = new MyDB();
+   if(!$db){
+      echo $db->lastErrorMsg();
+   } else {
+	  $sql = "SELECT * from Topics order by TopicID;";
+	  $results = $db->RunQuery($sql);
+	  $text = "";
+	  foreach($results as $row)
+	  {
+		  $name = $row['TopicName'];
+		  $id = $row['TopicID'];
+		  if (strlen($row['TopicFolderPath']) > 0)
+		  {
+			  $text .= "<DIV class=\"live_section\"><A style=\"vertical-align: middle;\" HREF=\"topics.php?MODE=Subsection&TopicID=$id\" TARGET=\"content\">$name</A></DIV>\n";
+		  }else{
+			  $text .= "<DIV class=\"dormant_section\">$name</DIV>\n";
+		  }  
+	  }
+	  echo ($text);
+   }
+
+?>
 				
 			</td>
 			<td valign="top">

@@ -33,6 +33,7 @@ body{
 	
 	
 }
+
 #content{
 	//position: absolute;
 	left: 200px;
@@ -40,3 +41,29 @@ body{
 	width: 800px;
 	background: silver;
 }
+
+.live_section, .dormant_section{
+	height: 40px;
+	background: blue;
+	margin: 5px;
+	text-align: center;
+	vertical-align: middle;
+	padding: 2px;
+	font-size: 16px;
+}
+
+.live_section a:link, a:visited, a:active{
+	color: white;
+	text-decoration: none;
+}
+
+.live_section a:hover{
+	color: white;
+	text-decoration: underline;
+}
+
+.dormant_section{
+	color: silver;
+	
+}
+
