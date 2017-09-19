@@ -1,0 +1,37 @@
+###QUESTION
+Match the following symbols to their sets:
+&#8474
+&#8484
+&#8477
+&#8469
+###ANSWER(4)
+&#8474 = Rational Numbers	(1 mark)
+&#8484 = Integers			(1 mark)
+&#8477 = Real Numbers		(1 mark)
+&#8469 = Natural Numbers	(1 mark)
+###QUESTION
+What is the symbol for the set of Rational Numbers?
+###ANSWER(1)
+&#8474 = Rational Numbers	(1 mark)
+###QUESTION
+What is the symbol for the set of Integers?
+###ANSWER(1)
+&#8484 = Integers	(1 mark)
+###QUESTION
+Give an example of a natural number and an irrational number
+###ANSWER(2)
+Natural number: any positive integer (or zero)													(1 mark)
+Irrational number: e, &#x3c0 (pi), &#x03D5 (golden ratio), any root of a non-square number.		(1 mark)
+###QUESTION
+What are ordinal numbers?
+###ANSWER(1)
+The set of natural numbers when used to count items, e.g. index positions in an ordered list.	(1 mark)
+###QUESTION
+What set is &#8477 - &#8474 equivalent to? Give an example of a member of this set.
+###ANSWER(2)
+&#8477 - &#8474 = Irrational Numbers												(1 mark)
+Example: e, &#x3c0 (pi), &#x03D5 (golden ratio), any root of a non-square number.	(1 mark)
+###QUESTION
+What is the difference between Integers and Natural Numbers?
+###ANSWER(1)
+Natural Numbers are all the integers &#8805 0.	(1 mark)
