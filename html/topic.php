@@ -1,36 +1,57 @@
-
+<HTML>
+<HEAD>
+<link rel="stylesheet" type="text/css" href="styles.css">
+		
+		<script type="text/javascript" src="5e6.js"></script>
+</HEAD>
+<BODY>
 
 <?php
 	include("functions.php");
 	
-	if($params["MODE"]=="Subsection"){
-		$db=new MyDB();
-		if(!$db){
-			echo $db->lastErrorMsg();
-		} else {
+	$db=new MyDB();
+	if(!$db){
+		echo $db->lastErrorMsg();
+		die;
+	}
+	
+	$breadcrumbs = "";
+	$text = "Error";
+	
+	if($params["MODE"]=="Subsection")
+	{
 			$sql="SELECT * FROM SubTopics JOIN Topics ON SubTopics.TopicID = Topics.TopicID WHERE SubTopics.TopicID='".$params["TopicID"]."' ORDER BY SubTopics.SubTopicID;";
 			$results = $db->RunQuery($sql);
 			$text = "";
-			  foreach($results as $row)
-			  {
+			foreach($results as $row)
+			{
 				  $name = $row['SubTopicName'];
 				  $topic = $params['TopicID'];
 				  $id = $row['SubTopicID'];
 				  $path = $row["TopicFolderPath"]."/".$row["SubTopicFolderPath"]."/notes.html";
 				  if(file_exists($path) == 1){
-					$text .= "<DIV class=\"live_section\"><A style=\"vertical-align: middle;\" HREF=\"topic.php?MODE=Notes&PATH=$path\" TARGET=\"content\">$name</A></DIV>\n";
+					$text .= "<DIV class=\"live_subsection\"><A style=\"vertical-align: middle;\" HREF=\"topic.php?MODE=Notes&PATH=$path\" TARGET=\"content\">$name</A></DIV>\n";
 				  }else{
-					$text .= "<DIV class=\"dormant_section\">$name</DIV>\n";
+					$text .= "<DIV class=\"dormant_subsection\">$name</DIV>\n";
 				  }
-			  }
-			echo ($text);
-		}
-	}
+			}
+	}else if($params["MODE"]=="Notes"){
 	
-	else if($params["MODE"]=="Notes"){
+		$sql="SELECT * FROM SubTopics JOIN Topics ON SubTopics.TopicID = Topics.TopicID WHERE SubTopics.TopicID='".$params["TopicID"]."' ORDER BY SubTopics.SubTopicID;";
+		$results = $db->RunQuery($sql);
+		$row = $results[0];
+	
+		$breadcrumbs .=  "<A HREF=\"topic.php?MODE=Subsection&TopicID=". $row["TopicID"] . "\">Back" .  $row["TopicName"] . "</A>";
+
+
 		$path = $params["PATH"];
 		$text = "<DIV class=\"notes\">".file_get_contents($path)."</DIV>\n";
-		echo ($text);
 	}
+	
+	echo($breadcrumbs);
+	echo($text);
 
 ?>
+
+</BODY>
+</HEAD>

@@ -39,7 +39,8 @@ body{
 	left: 200px;
 	top: 100px;
 	width: 800px;
-	background: silver;
+	height: 800px;
+	background: white;
 }
 
 .live_section, .dormant_section{
@@ -48,6 +49,17 @@ body{
 	margin: 5px;
 	text-align: center;
 	vertical-align: middle;
+	padding: 2px;
+	font-size: 16px;
+}
+
+.live_subsection, .dormant_subsection{
+
+	height: 20px;
+	background: teal;
+	margin: 5px;
+	text-align: left;
+	vertical-align: center;
 	padding: 2px;
 	font-size: 16px;
 }
@@ -63,6 +75,10 @@ body{
 }
 
 .dormant_section{
+	color: silver;
+	
+}
+.dormant_subsection{
 	color: silver;
 	
 }

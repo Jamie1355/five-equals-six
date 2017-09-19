@@ -48,7 +48,7 @@ include("functions.php");
 			<td valign="top">
 			
 			<div id="content">
-				<iframe id="iframe" scrolling=auto width=100% name="content" src="topic.php"></iframe>
+				<iframe id="iframe" scrolling=auto width="100%" height="100%" name="content" src="topic.php"></iframe>
 			</div>
 			</td>
 			</table>
