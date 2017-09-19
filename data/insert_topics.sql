@@ -15,7 +15,7 @@ INSERT INTO Topics(TopicID, TopicName, TopicFolderPath) VALUES
 
 INSERT INTO SubTopics(TopicID, SubTopicName, SubTopicFolderPath, AreQuestionsGenerated) VALUES
 (5, 'Number Systems', '01numbersystems', 0),
-(5, 'Number Bases', '02numberbases', 0),
+(5, 'Number Bases', '02numberbases', 1),
 (5, 'Units', '03units', 1),
 (5, 'Binary Sums', '04binarysums', 1),
 (5, 'Two''s Complement', '05twoscomplement', 1),
