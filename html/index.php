@@ -34,7 +34,7 @@ include("functions.php");
 		  $id = $row['TopicID'];
 		  if (strlen($row['TopicFolderPath']) > 0)
 		  {
-			  $text .= "<DIV class=\"live_section\"><A style=\"vertical-align: middle;\" HREF=\"topics.php?MODE=Subsection&TopicID=$id\" TARGET=\"content\">$name</A></DIV>\n";
+			  $text .= "<DIV class=\"live_section\"><A style=\"vertical-align: middle;\" HREF=\"topic.php?MODE=Subsection&TopicID=$id\" TARGET=\"content\">$name</A></DIV>\n";
 		  }else{
 			  $text .= "<DIV class=\"dormant_section\">$name</DIV>\n";
 		  }  

@@ -1,4 +1,6 @@
 <?php
+	$params = $_GET + $_POST;
+
    class MyDB extends SQLite3
    {
       function __construct()
