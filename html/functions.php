@@ -43,7 +43,7 @@
 		   while(true){
 			   $pos = strpos($text, $SEARCH, $offset);
 			   if($pos !== false){
-				   qs[$counter] = substr($text, $previousPos + strlen($SEARCH), $pos - strlen($text));
+				   $qs[$counter] = substr($text, $previousPos + strlen($SEARCH), $pos - strlen($text));
 				   $counter++;
 				   $offset = $pos + 1;
 				   $previousPos = $pos;

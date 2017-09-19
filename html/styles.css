@@ -53,18 +53,9 @@ body{
 	font-size: 16px;
 }
 
-.live_subsection, .dormant_subsection{
 
-	height: 20px;
-	background: teal;
-	margin: 5px;
-	text-align: left;
-	vertical-align: center;
-	padding: 2px;
-	font-size: 16px;
-}
 
-.live_section a:link, a:visited, a:active{
+.live_section a:link, .live_section a:visited, .live_section a:active{
 	color: white;
 	text-decoration: none;
 }
@@ -76,10 +67,38 @@ body{
 
 .dormant_section{
 	color: silver;
-	
+}
+
+.live_subsection, .dormant_subsection{
+
+	height: 20px;
+	background: teal;
+	margin: 5px;
+	text-align: left;
+	vertical-align: center;
+	padding: 2px;
+	font-size: 16px;
+}
+.live_subsection a:link, .live_subsection  a:visited, a.live_subsection :active{
+	color: white;
+	text-decoration: none;
+}
+
+.live_subsection a:hover{
+	color: white;
+	text-decoration: underline;
 }
 .dormant_subsection{
 	color: silver;
 	
+}
+
+.breadcrumbs a:link, a:visited, a:active{
+	color: black;
+	text-decoration: none;
+}
+.breadcrumbs a:hover{
+	color: black;
+	text-decoration: underline;
 }
 
