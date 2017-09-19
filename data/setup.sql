@@ -29,10 +29,11 @@ TopicFolderPath	VARCHAR(40) NOT NULL
 
 DROP TABLE IF EXISTS SubTopics;
 CREATE TABLE SubTopics(
-SubTopicID		INTEGER NOT NULL PRIMARY KEY,
-TopicID			INTEGER NOT NULL,
-SubTopicName	VARCHAR(30) NOT NULL,
-SubTopicFolderPath	VARCHAR(30) NOT NULL,
+SubTopicID				INTEGER NOT NULL PRIMARY KEY,
+TopicID					INTEGER NOT NULL,
+SubTopicName			VARCHAR(30) NOT NULL,
+SubTopicFolderPath		VARCHAR(30) NOT NULL,
+AreQuestionsGenerated	BOOLEAN NOT NULL CHECK(AreQuestionsGenerated IN (0,1)),	--Does this subtopic generate questions or have lists of them?
 FOREIGN KEY (TopicID) REFERENCES Topics(TopicID)
 );
 
@@ -42,15 +43,6 @@ SubTopicID		INTEGER NOT NULL,
 ExamQID	INTEGER NOT NULL,
 FOREIGN KEY (SubTopicID) REFERENCES SubTopics(SubopicID),
 FOREIGN KEY (ExamQID) REFERENCES ExamQuestions(ExamQID)
-);
-
-DROP TABLE IF EXISTS TestQuestions;
-CREATE TABLE TestQuestions(
-TestQID			INTEGER NOT NULL PRIMARY KEY,
-SubTopicID		INTEGER NOT NULL,
-QuestionPath	VARCHAR(50) NOT NULL,		--Path to a single question and answer pair, be it from a fixed file or a generator.
-IsGenerator		BOOLEAN NOT NULL CHECK(IsGenerator IN(0,1)),			--If the question is returned from a generator, it can be used again without duplicating questions.
-FOREIGN KEY (SubTopicID) REFERENCES SubTopics(SubTopicID)
 );
 
 DROP TABLE IF EXISTS Coverage;
@@ -85,18 +77,10 @@ INSERT INTO ExamQuestions(Year, Cycle, Paper, Question) VALUES
 ('2012', 'Jan', 2, '2'),
 ('2013', 'June', 2, '1bii');
 
-
-
 INSERT INTO ExamQSubTopics(SubTopicID, ExamQID) VALUES
 (1,1),
 (2,2),
 (2,3);
-
-INSERT INTO TestQuestions(SubTopicID, QuestionPath, IsGenerator) VALUES
-(1, 'inoutdevices/qs/q1.txt', 0),
-(2, 'binmaths/qs/q1.txt', 0),
-(2, 'binmaths/qs/q2.txt', 0),
-(2, 'binmaths/qs/g1', 1);
 
 INSERT INTO Coverage(UserID, SubTopicID, CoveragePercent) VALUES
 (1,1,20),
