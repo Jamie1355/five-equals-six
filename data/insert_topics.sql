@@ -3,7 +3,7 @@ INSERT INTO Topics(TopicID, TopicName, TopicFolderPath) VALUES
 (2, 'Data Structures',''),
 (3, 'Algorithms',''),
 (4, 'Theory of computation',''),
-(5, 'Data Representation', '5fundamentalsofdatarepresentation/'),
+(5, 'Data Representation', '5fundamentalsofdatarepresentation'),
 (6, 'Computer Systems',''),
 (7, 'Organisation &amp; Architecture',''),
 (8, 'Consequenses of Computing',''),
