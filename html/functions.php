@@ -22,38 +22,50 @@
    }
    
    class QuestionGetter{
-	   function QAndA(){
-		   $num = $params["numOfQuestions"];
+	   function QAndA($num, $path){
 		   $questions = array();
 		   $answers = array();
-		   $contents = file_get_contents($params["questionsPath"]."/questions.txt");
-		   $questions[] = GetQs($contents);
+		   $contents = file_get_contents($path."/questions.txt");
+		   $questions[] = $this->GetQs($contents);
+		   $x = 0;
+		   $end = "";
 		   foreach($questions as $q){
-			   echo $q;
+			   $end .= $q[$x];
+			   $x++;
 		   }
+		   return $end;
 	   }
 	   
 	   function GetQs($text){
+		   $subText = "";
 		   $SEARCH = "###QUESTION";
+		   $SEARCH2 = "###ANSWER";
 		   $qs = array();
 		   $counter = 0;
-		   $offset = 1;
+		   $offset = 0;
 		   $previousPos = 0;
 		   
-		   while(true){
+		   preg_match_all('/[~]{3}(QUESTION|ANSWER)(.[^~]*)/', $text, $qs);
+		   echo "<pre>";
+		   var_dump ($qs);
+		   echo "</pre>";
+		   
+		   /*while(true){
 			   $pos = strpos($text, $SEARCH, $offset);
+			   $pos2 = strpos($text, $SEARCH2, $offset);
 			   if($pos !== false){
-				   $qs[$counter] = substr($text, $previousPos + strlen($SEARCH), $pos - strlen($text));
+				   $subText = substr($text, $pos + strlen($SEARCH), $pos2 - $pos);
+				   $qs[$counter] = $subText;//substr($text, $previousPos + strlen($SEARCH), $pos - strlen($text));
 				   $counter++;
-				   $offset = $pos + 1;
+				   $offset = $pos2 + 1;
 				   $previousPos = $pos;
 			   }
 			   else{
 				   break;
 			   }
-		   }
+		   }*/
 		   
-		   return qs;
+		   return $qs[2];
 	   }
    }
   

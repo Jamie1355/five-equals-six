@@ -28,7 +28,7 @@
 				  $name = $row['SubTopicName'];
 				  $topic = $params['TopicID'];
 				  $id = $row['SubTopicID'];
-				  $path = $row["TopicFolderPath"]."/".$row["SubTopicFolderPath"]."/notes.html";
+				  $path = $row["TopicFolderPath"]."/".$row["SubTopicFolderPath"];
 				  if(file_exists($path) == 1){
 					$text .= "<DIV class=\"live_subsection\"><A style=\"vertical-align: middle;\" HREF=\"topic.php?MODE=Notes&SubTopicID=$id&PATH=$path\" TARGET=\"content\">$name</A></DIV>\n";
 				  }else{
@@ -47,8 +47,13 @@
 
 		}
 		
+		$qs = new QuestionGetter();
+		
 		$path = $params["PATH"];
-		$text = "<DIV class=\"notes\">".file_get_contents($path)."</DIV>\n";
+		$text = "<DIV class=\"notes\">".file_get_contents($path."/notes.html")."</DIV>\n";
+		foreach(nl2br($qs->QAndA(4, $path)) as $question){
+			$text .= "<DIV class=\"questions\">".$question."</DIV>\n";
+		}
 	}
 	
 	
