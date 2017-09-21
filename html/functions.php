@@ -23,49 +23,37 @@
    
    class QuestionGetter{
 	   function QAndA($num, $path){
+		   $xml=simplexml_load_file($path);
+		   // put these into an array of ayrrays
 		   $questions = array();
-		   $answers = array();
-		   $contents = file_get_contents($path."/questions.txt");
-		   $questions[] = $this->GetQs($contents);
-		   $x = 0;
-		   $end = "";
-		   foreach($questions as $q){
-			   $end .= $q[$x];
-			   $x++;
+		   $count = 0;
+		   foreach($xml->question as $question)
+		   {
+			   $thisQuestion = array();
+			   $thisQuestion["text"] = $question->text;
+			   $thisQuestion["answer"] = $question->answer;
+			   $thisQuestion["number"] = $count;
+			   $count++;
+			   $questions[] = $thisQuestion;
 		   }
-		   return $end;
-	   }
-	   
-	   function GetQs($text){
-		   $subText = "";
-		   $SEARCH = "###QUESTION";
-		   $SEARCH2 = "###ANSWER";
-		   $qs = array();
-		   $counter = 0;
-		   $offset = 0;
-		   $previousPos = 0;
 		   
-		   preg_match_all('/[~]{3}(QUESTION|ANSWER)(.[^~]*)/', $text, $qs);
-		   echo "<pre>";
-		   var_dump ($qs);
-		   echo "</pre>";
-		   
-		   /*while(true){
-			   $pos = strpos($text, $SEARCH, $offset);
-			   $pos2 = strpos($text, $SEARCH2, $offset);
-			   if($pos !== false){
-				   $subText = substr($text, $pos + strlen($SEARCH), $pos2 - $pos);
-				   $qs[$counter] = $subText;//substr($text, $previousPos + strlen($SEARCH), $pos - strlen($text));
-				   $counter++;
-				   $offset = $pos2 + 1;
-				   $previousPos = $pos;
+		   // choose the number of questions asked for
+		   if ($count <= $num)
+		   {
+			   // return them all
+			   return $questions;
+		   }else{
+			   shuffle($questions);
+			   $result = array();
+			   for($i=0;$i<$num;$i++)
+			   {
+				   $result[] = array_pop($questions);
 			   }
-			   else{
-				   break;
-			   }
-		   }*/
+			   return $result;
+			   
+		   }
 		   
-		   return $qs[2];
+	  
 	   }
    }
   

@@ -47,12 +47,14 @@
 
 		}
 		
-		$qs = new QuestionGetter();
+		
 		
 		$path = $params["PATH"];
 		$text = "<DIV class=\"notes\">".file_get_contents($path."/notes.html")."</DIV>\n";
-		foreach(nl2br($qs->QAndA(4, $path)) as $question){
-			$text .= "<DIV class=\"questions\">".$question."</DIV>\n";
+		
+		$qs = new QuestionGetter();
+		foreach($qs->QAndA(4, $path."/questions.xml") as $question){
+			$text .= "<DIV class=\"questions\">".nl2br($question["text"])."</DIV>\n";
 		}
 	}
 	
