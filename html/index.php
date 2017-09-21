@@ -19,7 +19,7 @@
 			<td id="sidebar" valign="top">
 		
 				<?php
-include("functions.php");
+require("functions.php");
 
  $db = new MyDB();
    if(!$db){
