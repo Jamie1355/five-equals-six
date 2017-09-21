@@ -53,7 +53,7 @@
 			$row = $results[0];
 			
 			$breadcrumbs = MakeBreadcrumbs($row["TopicID"],$row["TopicName"], $row["SubTopicName"]);
-			$text = DisplayNotesText(GetNotesFileContents($row));
+			$text = DisplayNotesText(GetNotesFileContents($row), $row["ImagesPath"]);
 			$text.= MakeQuestionsLink($row);
 			
 

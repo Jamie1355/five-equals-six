@@ -45,6 +45,7 @@
 			$path = $results[$i]["TopicFolderPath"]."/".$results[$i]["SubTopicFolderPath"]."/";
 			$results[$i]["NotesPath"] = $path . "notes.html";
 			$results[$i]["QuestionsPath"] = $path . "questions.xml";
+			$results[$i]["ImagesPath"] = $path;
 		} 
 	  }
 	  

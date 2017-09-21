@@ -14,9 +14,12 @@ function MakeQuestionsLink($topicData)
 	$text = "<P CLASS=\"questionLink\"><A HREF=question.php?SubTopicID=" . $topicData["SubTopicID"] . ">Questions</A><P>";
 	return $text;
 }
-function DisplayNotesText($text)
+function DisplayNotesText($text,$path)
 {
-	return "<DIV class=\"notes\">".nl2br($text)."</DIV>\n";
+	$text = nl2br($text);
+	$text = str_replace("SRC=\"","SRC=\"" . $path ,$text);
+	$text = str_replace("src=\"","src=\"" . $path,$text );
+	return "<DIV class=\"notes\">".$text."</DIV>\n";
 }
 
 function DisplayQuestionsText($listOfQuestions)
