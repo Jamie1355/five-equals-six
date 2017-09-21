@@ -1,5 +1,11 @@
 <html>
 	<head>
+		<style>
+			img{
+				max-width:30%;
+				max-height:30%;
+			}
+		</style>
 	</head>
 	
 	<body>
@@ -9,6 +15,7 @@
 			Digital signals are discrete; they are limited to predefined ranges and intervals, e.g. 0, 1, 2, or 0.25, 0.50, 0.75. In either of these examples 
 				there is no such thing as 0.64423552 or any other value in between intervals.<br/>
 			Within the context of computing, all digital signals are binary and therefore take the value 0 or 1 only.<br/>
+			<img src="alg-vs-dig.jpg"/>
 			<br/>
 			It is often required to convert between digital and analogue signals.<br/>
 			Devices such as microphones or cameras that take continuous real-world measurements need to convert the signal to digital form before it can before
@@ -26,7 +33,10 @@
 				and irreversibly degrade an analogue signal. Because an analogue signal can take any value, if it is modified by noise then there is no way of telling
 				what the original value was. However, with a digital signal (transmitted as an analogue voltage down a wire) that is limited to 1 or 0, you can easily
 				rectify each value to the nearest of 1 or 0. If a single bit of data comes through at 0.921, it is safe to assume it is a 1. With analogue data, it
-				could be anything.
+				could be anything.<br/>
+			<img src="noise.jpg"/>
+			<br/>
+			As you can see, even with significant distortion, the digital signal is still clear, whereas the analogue signal is not.
 		</p>
 	</body>
 </html>
