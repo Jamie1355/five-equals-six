@@ -1,3 +1,6 @@
+(THIS IS THE OLD FORMAT, USE XML)
+
+
 ~~~QUESTION
 Match the following symbols to their sets:
 &#8474
