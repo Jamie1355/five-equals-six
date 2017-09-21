@@ -1,25 +1,105 @@
 <data>
 <question>
 	<text>
-Match the following symbols to their sets:
-&#8474; <!--slb-->
-&#8484; <!--slb-->
-&#8477; <!--slb-->
-&#8469; <!--slb-->
+		What set does this symbol represent?
+		&#8474;
 	</text>
 	<answer>
-&#8474; = Rational Numbers	(1 mark)
-&#8484; = Integers			(1 mark)
-&#8477; = Real Numbers		(1 mark)
-&#8469; = Natural Numbers	(1 mark)
+		&#8474; = Rational Numbers
 	</answer>
 </question>
+
 <question>
 	<text>
-What is the symbol for the set of Rational Numbers?
+		What set does this symbol represent?
+		&#8484;
 	</text>
 	<answer>
-&#8474; = Rational Numbers	(1 mark)
+		&#8484; = Integers
+	</answer>
+</question>
+
+<question>
+	<text>
+		What set does this symbol represent?
+		&#8477;
+	</text>
+	<answer>
+		&#8477; = Real Numbers
+	</answer>
+</question>
+
+<question>
+	<text>
+		What set does this symbol represent?
+		&#8469;
+	</text>
+	<answer>
+		&#8469; = Natural Numbers
+	</answer>
+</question>
+
+<question>
+	<text>
+		What is the symbol for the set of Rational Numbers?
+	</text>
+	<answer>
+		&#8474; = Rational Numbers
+	</answer>
+</question>
+
+<question>
+	<text>
+		What is the symbol for the set of Integers?
+	</text>
+	<answer>
+		&#8484; = Integers
+	</answer>
+</question>
+
+<question>
+	<text>
+		Give an example of a natural number
+	</text>
+	<answer>
+		Natural number: any positive integer (or zero)
+	</answer>
+</question>
+
+<question>
+	<text>
+		Give an example of an irrational number
+	</text>
+	<answer>
+		Irrational number: e, &#x3c0; (pi), &#x03D5; (golden ratio), any root of a non-square number.
+	</answer>
+</question>
+
+<question>
+	<text>
+		What are ordinal numbers?
+	</text>
+	<answer>
+		The set of natural numbers when used to count items, e.g. index positions in an ordered list.
+	</answer>
+</question>
+
+<question>
+	<text>
+		What set is &#8477; - &#8474; equivalent to? Give an example of a member of this set.
+	</text>
+	<answer>
+		&#8477; - &#8474; = Irrational Numbers
+		Example: e, &#x3c0; (pi), &#x03D5; (golden ratio), any root of a non-square number.
+	</answer>
+</question>
+
+<question>
+	<text>
+		What is the difference between Integers and Natural Numbers?
+	</text>
+	<answer>
+		Natural Numbers are all the integers &#8805; 0.
 	</answer>
 </question>
 </data>
