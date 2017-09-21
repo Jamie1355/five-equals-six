@@ -1,0 +1,57 @@
+<data>
+<question>
+	<text>
+		Explain the fundamental difference between analogue and digital signals.
+	</text>
+	<answer>
+		Analogue signals are continuous and can take any number of values, digital signals are discrete and can only take preset values.
+	</answer>
+</question>
+
+<question>
+	<text>
+		Give an example of a device that requires an ADC (analogue to digital converter).
+	</text>
+	<answer>
+		Microphone, camera, video camera, thermometer, any other device that performs measurements on continuous real-world data.
+	</answer>
+</question>
+
+<question>
+	<text>
+		Give an example of a device that requires a DAC (digital to analogue converter).
+	</text>
+	<answer>
+		Any device with speakers/sound playback capability.
+	</answer>
+</question>
+
+<question>
+	<text>
+		Describe the way an ADC (analogue to digital converter) works.
+	</text>
+	<answer>
+		The continuous signal is sampled at a certain frequency, and each sample is recorded as binary data.
+	</answer>
+</question>
+
+<question>
+	<text>
+		Describe the way a DAC (digital to analogue converter) works.
+	</text>
+	<answer>
+		The digital data represents the value of the analogue signal, so a voltage is produced equal to this value for each sample. Interpolation may be used to 
+		smooth the discrete intervals, depending on the purpose of the DAC.
+	</answer>
+</question>
+
+<question>
+	<text>
+		Describe why digital data is far more resistant to noise than analogue data.
+	</text>
+	<answer>
+		Values received that have been modified by noise can be restored to their true values as they can only be 1 or 0; anything in between is impossible. Analogue
+		signals are allowed to be anything, so any such restoration is impossible.
+	</answer>
+</question>
+</data>

@@ -27,7 +27,8 @@
 			Devices such as speakers need to convert digtal data (in this case sound data) to an analogue voltage signal that can control the speaker. This is performed
 				by a digital to analogue converter (DAC).<br/>
 			The DAC outputs a voltage equal to each sample in series. In order to smooth out the discrete intervals, the DAC uses interpolation to create a smooth
-				curve between samples rather than jumping straight from one value to the next.<br/>
+				curve between samples rather than jumping straight from one value to the next. Interpolation may not be desired if digital data is being 
+				converted to analogue for the purpose of transmitting it and turning it back to digital, as clear intervals are needed.<br/>
 			<br/>
 			The discrete nature of digital signals makes it ideal for transmitting data long distances, as it allows the removal of noise that would permenantly
 				and irreversibly degrade an analogue signal. Because an analogue signal can take any value, if it is modified by noise then there is no way of telling
