@@ -7,16 +7,16 @@
 			Sound is recorded by a computer using an analogue to digital converter (See Analogue vs Digital) to convert the electric signal representing the sound
 				wave into binary data. This process will now be explained in more detail with respect to the specifics of sound conversion.<br/>
 			<br/>
-			The first step is pulse amplitude modulation. This samples the analogue signal at the sampling frequency (44,000Hz for CDs) and takes the value of the
+			The first step is <b>pulse amplitude modulation</b>. This samples the analogue signal at the sampling frequency (44,000Hz for CDs) and takes the value of the
 				signal at each point. The sampling rate that should be used is determined by the Nyquist Theorem, which states that the sample rate should be at least
 				twice the highest frequency used to fully represent the sound. 20,000Hz is the usual limit of human hearing, so 44,000Hz satisfies the theorem for all
 				sound that we can hear.<br/>
 			<br/>
-			The second step is quantisation, which is where the sample values are mapped onto a scale determined by the sample resolution. The sample resolution is
+			The second step is <b>quantisation</b>, which is where the sample values are mapped onto a scale determined by the sample resolution. The sample resolution is
 				simply the number of bits used to store each sample. For example, if the sample resolution is 8 bits, all the sample values will have to be mapped
 				onto the numbers 0-255.<br/>
 			<br/>
-			The final step is pulse code modulation, which is where the quantised numbers are converted into their binary representation to be stored.<br/>
+			The final step is <b>pulse code modulation</b>, which is where the quantised numbers are converted into their binary representation to be stored.<br/>
 			<br/>
 			The size of the sound file can be calculated by sound length * sample rate * sample resolution.
 		</p>
