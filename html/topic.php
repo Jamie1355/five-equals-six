@@ -28,21 +28,8 @@
 	else if($params["MODE"]=="Subsection")
 	{
 		
-			
 			$results =$db->GetSubTopicTopicList($params["TopicID"]);
-			$text = "";
-			foreach($results as $row)
-			{
-				  $name = $row['SubTopicName'];
-				  $topic = $params['TopicID'];
-				  $id = $row['SubTopicID'];
-				  $path = $row["NotesPath"];
-				  if(file_exists($path) == 1){
-					$text .= "<DIV class=\"live_subsection\"><A style=\"vertical-align: middle;\" HREF=\"topic.php?MODE=Notes&SubTopicID=$id&PATH=$path\" TARGET=\"content\">$name</A></DIV>\n";
-				  }else{
-					$text .= "<DIV class=\"dormant_subsection\">$name</DIV>\n";
-				  }
-			}
+			$text = DisplaySubtopicList($results);
 	}else if($params["MODE"]=="Notes"){
 	
 		$results = $db->GetSubTopicData($params["SubTopicID"]);

@@ -1,8 +1,9 @@
 <data>
 <question>
 	<text>
+	<![CDATA[
 		What set does this symbol represent?
-		&#8474;
+		&#8474;]]>
 	</text>
 	<answer>
 		&#8474; = Rational Numbers
@@ -86,7 +87,8 @@
 
 <question>
 	<text>
-		What set is &#8477; - &#8474; equivalent to? Give an example of a member of this set.
+		What set is &#8477; - &#8474; equivalent to?
+		Give an example of a member of this set.
 	</text>
 	<answer>
 		&#8477; - &#8474; = Irrational Numbers
